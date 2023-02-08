@@ -1,9 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\UsuariosController;
-use App\Http\Controllers\InstrucoesController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SiteController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,13 +18,18 @@ use App\Http\Controllers\InstrucoesController;
 |
 */
 
-Route::get('/', function () {
-    return view('site.home');
-});
+Route::get('/', [SiteController::class, 'home']);
+Route::get('/buscar', [SiteController::class, 'buscar']);
 
-Route::get('/login', function () {
-    return view('login.login');
-});
+Route::get('/noticias', [NoticiaController::class, 'index']);
+Route::get('/noticias/visualizar', [NoticiaController::class, 'visualizar']);
+Route::get('/noticias/categoria', [SiteController::class, 'categoria']);
+
+Route::get('/login', [LoginController::class, 'login']);
+
+
+
+
 
 Route::prefix('/admin')->group(function () {
 
@@ -46,23 +53,4 @@ Route::prefix('/admin')->group(function () {
 
     Route::delete('/usuarios/deletar/{id}', [UsuariosController::class, 'destroy'])
         ->name('admin.usuarios.deletar');
-
-
-    Route::get('/instrucoes', [InstrucoesController::class, 'index'])
-        ->name('admin.instrucoes.index');
-
-    Route::get('/instrucoes/cadastrar', [InstrucoesController::class, 'create'])
-        ->name('admin.instrucoes.cadastrar');
-
-    Route::post('/instrucoes/cadastrar', [InstrucoesController::class, 'store'])
-        ->name('admin.instrucoes.cadastrar');
-
-    Route::get('/instrucoes/editar/{id}', [InstrucoesController::class, 'edit'])
-        ->name('admin.instrucoes.editar');
-
-    Route::put('/instrucoes/editar/{id}', [InstrucoesController::class, 'update'])
-        ->name('admin.instrucoes.editar');
-
-    Route::delete('/instrucoes/deletar/{id}', [InstrucoesController::class, 'destroy'])
-        ->name('admin.instrucoes.deletar');
 });

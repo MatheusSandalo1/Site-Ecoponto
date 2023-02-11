@@ -11,8 +11,8 @@
 @endif
 
 <div class="col-md-12">
-    <label for="nome" class="form-label">Título</label>
-    <input type="text" class="form-control @error('tituloIn') is-invalid @enderror" name="tituloIn" id="tituloIn" placeholder="Insira o Titulo" value="{{ old('tituloIn', $tituloIn->titulo) }}">
+    <label for="titulo" class="form-label">Título</label>
+    <input type="text" class="form-control @error('titulo') is-invalid @enderror" name="titulo" id="titulo" placeholder="Insira o Titulo" value="{{ old('titulo', $instrucoes->titulo) }}">
 
 @error('nome')
     <div class="invalid-feedback">
@@ -22,10 +22,10 @@
 
 </div>
 <div class="col-md-12">
-    <label for="email" class="form-label">Email</label>
-    <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Insira a E-mail" value="{{ old('email', $usuario->email) }}">
+    <label for="descricao" class="form-label">Descrição</label>
+    <input type="text" name="descricao" class="form-control @error('descricao') is-invalid @enderror" id="descricao" placeholder="Insira a Descrição" value="{{ old('descricao', $instrucoes->email) }}">
 
-@error('email')
+@error('descricao')
     <div class="invalid-feedback">
         {{ $message }}
     </div>
@@ -33,23 +33,14 @@
 
 </div>
 <div class="col-md-12">
-    <label for="senha" class="form-label">Senha</label>
-    <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="senha" placeholder="">
+    <label for="imagem" class="form-label">Imagem</label>
+    <input type="file" name="imagem" class="form-control @error('imagem') is-invalid @enderror" id="imagem" placeholder="">
 
-    @error('password')
+    @error('imagem')
         <div class="invalid-feedback">
             {{ $message }}
         </div>
     @enderror
-</div>
-<div class="col-md-3">
-    <label for="role" class="form-label">Nível</label>
-    <select class="form-control" id="role" name="role">
-        <option value="Editor" {{ old('role', $usuario->role) == 'Editor' ? 'selected' : '' }}>
-            Editor</option>
-        <option value="Administrador" {{ old('role',$usuario->role) == 'Administrador' ? 'selected' : '' }}>
-            Administrador</option>
-    </select>
 </div>
 
 <div class="col-12">

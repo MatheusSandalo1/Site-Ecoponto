@@ -25,7 +25,7 @@
         </button>
 
         <div class="w-md-100 rounded-0 border-0 text-white px-4 text-end">
-            Olá, Edson Rodrigues
+            Olá, Matheus Sandalo
         </div>
         <div class="navbar-nav">
             <div class="nav-item text-nowrap logout">
@@ -65,7 +65,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{route("admin.instrucoes.index")}}">
                                 <i class="fas fa-users pe-2"></i>
                                 Informações
                             </a>

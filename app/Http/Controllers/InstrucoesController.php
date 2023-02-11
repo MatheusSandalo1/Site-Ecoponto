@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\InstrucaoModel;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\User;
@@ -38,16 +39,16 @@ class InstrucoesController extends Controller
 
         try {
 
-            $instrucoes = new User();
+            $instrucoes = new InstrucaoModel();
             $instrucoes->titulo = $request->titulo;
             $instrucoes->descricao = $request->descricao;
-            $instrucoes->imagem = $request->imagem;
+            $instrucoes->imagem = $request->imagem->storeAs('imagem', 'novonome.jpg');
             $instrucoes->save();
 
             return redirect()->route('admin.instrucoes.index')->with('sucesso', 'Usuário cadastrado com sucesso');
         } catch (\Exception $e) {
 
-            //dd($e->getMessage());
+            dd($e->getMessage());
 
             return redirect()->back()->withInput()->with('erro', 'Ocorreu um erro ao cadastrar, por favor tente novamente');
         }
@@ -58,7 +59,7 @@ class InstrucoesController extends Controller
     public function edit($id)
     {
         return view('admin.instrucoes.editar', [
-            'instrucoes' => User::findOrFail($id)
+            'instrucoes' => InstrucaoModel::findOrFail($id)
         ]);
     }
 
@@ -74,7 +75,7 @@ class InstrucoesController extends Controller
 
         try {
 
-            $instrucoes = User::findOrFail($id);
+            $instrucoes = InstrucaoModel::findOrFail($id);
             $instrucoes->titulo = $request->titulo;
             $instrucoes->descricao = $request->descricao;
             $instrucoes->save();

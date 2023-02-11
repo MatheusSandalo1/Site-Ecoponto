@@ -1,12 +1,12 @@
 @extends('layouts.admin')
 
-@section('titulo', 'Instruções')
+@section('titulo', 'Tipo')
 
 @section('conteudo')
 
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Instruções</h1>
+        <h1 class="h2">Tipos</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <!-- Botão na Esquerda -->
             <a href="{{ route('admin.instrucoes.cadastrar') }}" class="btn btn-primary">Cadastrar</a>
@@ -18,7 +18,7 @@
     <div class="conteudo-admin">
 
         <div class="tabela-registros">
-            <h4 class="py-3">Lista de Instruções</h4>
+            <h4 class="py-3">Lista de Tipos</h4>
             <div class="table-responsive mt-3">
                 <table class="table table-striped">
                     <thead>
@@ -31,7 +31,7 @@
                     </thead>
                     <tbody>
 
-                        @foreach ($instrucoes as $user)
+                        @foreach ($tipo as $user)
 
                         <tr>
                             <th scope="row">{{ $user->id }}</th>

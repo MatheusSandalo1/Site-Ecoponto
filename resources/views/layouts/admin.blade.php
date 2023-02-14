@@ -59,9 +59,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{route("admin.tipo.index")}}">
                                 <i class="fas fa-users pe-2"></i>
-                                Ecopontos
+                                Tipos
                             </a>
                         </li>
                         <li class="nav-item">

@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\UsuariosController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InstrucoesController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TipoController;
 use App\Models\TipoModel;
 
@@ -18,13 +20,11 @@ use App\Models\TipoModel;
 |
 */
 
-Route::get('/', function () {
-    return view('site.home');
-});
+Route::get('/', [HomeController::class, 'index'])
+    ->name('home.index');
 
-Route::get('/login', function () {
-    return view('login.login');
-});
+Route::get('/login', [LoginController::class, 'login'])
+    ->name('login.login');
 
 Route::prefix('/admin')->group(function () {
 

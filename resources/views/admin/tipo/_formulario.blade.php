@@ -12,7 +12,7 @@
 
 <div class="col-md-12">
     <label for="Residuos" class="form-label">Resíduos</label>
-    <input type="text" class="form-control @error('Residuos') is-invalid @enderror" name="tipo" id="tipo" placeholder="Insira os Residuos" value="{{ old('Residuos', $instrucoes->titulo) }}">
+    <input type="text" class="form-control @error('Residuos') is-invalid @enderror" name="tipo" id="tipo" placeholder="Insira os Residuos" value="{{ old('Residuos', $residuos->titulo) }}">
 
 @error('Residuos')
     <div class="invalid-feedback">

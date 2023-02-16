@@ -1,15 +1,15 @@
 @extends('layouts.admin')
 
-@section('titulo', 'Usuários')
+@section('titulo', 'Ecoponto')
 
 @section('conteudo')
 
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2">Usuários</h1>
+        <h1 class="h2">Ecopontos</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
             <!-- Botão na Esquerda -->
-            <a href="{{ route('admin.usuarios.cadastrar') }}" class="btn btn-primary">Cadastrar</a>
+            <a href="{{ route('admin.ecoponto.cadastrar') }}" class="btn btn-primary">Cadastrar</a>
         </div>
     </div>
 
@@ -18,20 +18,23 @@
     <div class="conteudo-admin">
 
         <div class="tabela-registros">
-            <h4 class="py-3">Lista de Usuários</h4>
+            <h4 class="py-3">Lista de Ecopontos</h4>
             <div class="table-responsive mt-3">
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th scope="col" width="50">ID</th>
                             <th scope="col">Nome</th>
-                            <th scope="col">E-mail</th>
+                            <th scope="col">Rua</th>
+                            <th scope="col">Bairro</th>
+                            <th scope="col">Funcionamento</th>
+                            <th scope="col">Telefone</th>
                             <th scope="col" width="100">Ação</th>
                         </tr>
                     </thead>
                     <tbody>
 
-                        @foreach ($usuarios as $user)
+                        @foreach ($ecoponto as $user)
 
                         <tr>
                             <th scope="row">{{ $user->id }}</th>
@@ -39,9 +42,9 @@
                             <td>{{ $user->email }}</td>
                             <td class="d-flex">
                                 <a
-                                href="{{ route('admin.usuarios.editar',['id'=> $user->id ]) }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
+                                href="{{ route('admin.ecoponto.editar',['id'=> $user->id ]) }}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i></a>
 
-<form action="{{ route('admin.usuarios.deletar',['id'=> $user->id ]) }}" method="post">
+<form action="{{ route('admin.ecoponto.deletar',['id'=> $user->id ]) }}" method="post">
 
 @csrf
 @method('delete')

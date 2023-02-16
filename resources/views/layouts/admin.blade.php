@@ -65,6 +65,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{route("admin.ecoponto.index")}}">
+                                <i class="fas fa-users pe-2"></i>
+                                Ecopontos
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{route("admin.instrucoes.index")}}">
                                 <i class="fas fa-users pe-2"></i>
                                 Informações

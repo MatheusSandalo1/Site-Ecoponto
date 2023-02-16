@@ -3,10 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Admin\UsuariosController;
+use App\Http\Controllers\EcopontoController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InstrucoesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TipoController;
+use App\Models\EcopontoModel;
 use App\Models\TipoModel;
 
 /*
@@ -24,9 +26,13 @@ Route::get('/', [HomeController::class, 'index'])
     ->name('home.index');
 
 Route::get('/login', [LoginController::class, 'login'])
-    ->name('login.login');
+    ->name('login');
 
-Route::prefix('/admin')->group(function () {
+Route::post('/login', [LoginController::class, 'postLogin'])->name('post.login');
+
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::prefix('/admin')->middleware('auth')->group(function () {
 
     Route::get('/', [AdminController::class, 'home'])
         ->name('admin.home');
@@ -87,4 +93,24 @@ Route::prefix('/admin')->group(function () {
 
     Route::delete('/tipo/deletar/{id}', [TipoController::class, 'destroy'])
         ->name('admin.tipo.deletar');
+
+    //Ecopontos
+
+    Route::get('/ecoponto', [EcopontoController::class, 'index'])
+        ->name('admin.ecoponto.index');
+
+    Route::get('/ecoponto/cadastrar', [EcopontoController::class, 'create'])
+        ->name('admin.ecoponto.cadastrar');
+
+    Route::post('/ecoponto/cadastrar', [EcopontoController::class, 'store'])
+        ->name('admin.ecoponto.cadastrar');
+
+    Route::get('/ecoponto/editar/{id}', [EcopontoController::class, 'edit'])
+        ->name('admin.ecoponto.editar');
+
+    Route::put('/ecoponto/editar/{id}', [EcopontoController::class, 'update'])
+        ->name('admin.ecoponto.editar');
+
+    Route::delete('/ecoponto/deletar/{id}', [EcopontoController::class, 'destroy'])
+        ->name('admin.ecoponto.deletar');
 });

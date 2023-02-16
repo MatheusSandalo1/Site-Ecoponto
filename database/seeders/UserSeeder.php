@@ -19,16 +19,22 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create('pt_BR');
         User::create([
 
-            'nome' => $faker->name,
-            'email' => $faker->unique()->safeEmail,
+            'nome' =>  'admin',
+            'email' => 'admin@admin',
             'email_verified_at' => now(),
             'password' => bcrypt('12345678'), // password
             'remember_token' => Str::random(),
-            'role' => 'editor',
+        ]);
 
+        User::create([
+
+            'nome' =>  'Sara',
+            'email' => 'sara@sara.com',
+            'email_verified_at' => now(),
+            'password' => bcrypt('12345678'), // password
+            'remember_token' => Str::random(),
         ]);
     }
 }

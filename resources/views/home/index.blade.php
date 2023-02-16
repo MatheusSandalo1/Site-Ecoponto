@@ -10,12 +10,6 @@
 </div>
 
 <div class="container">
-    <div class=" d-grid gap-2 d-md-flex justify-content-md-end">
-        <div class="tamaIcone">
-            <a class="btn btn-outline-success " href="{{route("login.login")}}"> Login </a>
-
-        </div>
-    </div>
     <div class=" justify-content-center">
         <div class=" row ">
 
@@ -71,27 +65,7 @@
                                 <p>segunda a sexta, das 8:00 as 18:00</p>
                                 <h5> Materias que são coletado:</h5>
                                 <p> Pequenas proporções de entulho, restos de poda, móveis e estofados velhos, além de óleo de cozinha, papelão, plásticos e vidros. </p>
-
-                    </div>
-                </div>
-                <div class="col-md ">
-                    <div class="fundoServico ">
-                        <h3>EcoPonto Zona leste</h3>
-
-                        <h5>localização:<h5>
-                                <h5>horário: </h5>
-                                <h5> Materias que são coletado:</h5>
-                    </div>
-                </div>
-                <div class="col-md ">
-                    <div class="fundoServico ">
-                        <h3>EcoPonto Zona Sul</h3>
-                        <h5>localização:<h5>
-                                <h5>horário: </h5>
-                                <h5> Materias que são coletado:</h5>
-
-                    </div>
-                </div>
+                                
             </div>
         </div>
     </div>
